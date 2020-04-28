@@ -4,7 +4,6 @@ import java.util.Date;
 
 /**
  * @author pengl
- *
  */
 public class User {
     private Integer id;

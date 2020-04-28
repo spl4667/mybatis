@@ -5,7 +5,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spl.user.dao.IUserDao">
     <!-- 配置查询所有 -->
-    <select id="findAll">
+    <select id="findAll" resultType="com.spl.user.domain.User">
         select * from user
     </select>
 </mapper>
