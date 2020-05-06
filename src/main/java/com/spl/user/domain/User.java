@@ -51,4 +51,9 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return this.getUsername() + " " + this.getSex() + " " + this.getBirthday() + " " + this.getAddress();
+    }
 }

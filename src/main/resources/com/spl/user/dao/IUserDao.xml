@@ -8,4 +8,12 @@
     <select id="findAll" resultType="com.spl.user.domain.User">
         select * from user
     </select>
+
+    <!-- 配置保存 -->
+    <insert id="saveUser" parameterType="com.spl.user.domain.User">
+        INSERT INTO USER
+        (username, birthday, sex, address)
+        VALUES
+        (#{username},#{birthday},#{sex},#{address})
+    </insert>
 </mapper>
