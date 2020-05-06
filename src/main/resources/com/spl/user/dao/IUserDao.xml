@@ -16,4 +16,21 @@
         VALUES
         (#{username},#{birthday},#{sex},#{address})
     </insert>
+
+    <!-- 配置修改 -->
+    <update id="updateUser" parameterType="com.spl.user.domain.User">
+        Update user
+        set
+        username = #{username},
+        birthday = #{birthday},
+        sex = #{sex},
+        address = #{address}
+        where
+        id = #{id}
+    </update>
+
+    <!-- 配置保存 -->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id = #{uid}
+    </delete>
 </mapper>

@@ -95,4 +95,30 @@ public class MyBatisTest {
         //执行保存
         this.iUserDao.saveUser(user);
     }
+
+    /**
+     * 测试修改
+     */
+    @Test
+    public void TestUpdate()
+    {
+        User user = new User();
+        user.setId(5);
+        user.setUsername("mybatis");
+        user.setAddress("浙江");
+        user.setBirthday(new Date());
+        user.setSex("男");
+        //执行更新
+        this.iUserDao.updateUser(user);
+    }
+
+    /**
+     * 测试删除
+     */
+    @Test
+    public void TestDelete()
+    {
+        //执行删除
+        this.iUserDao.deleteUser(5);
+    }
 }

@@ -33,4 +33,12 @@ public class UserDaoImpl implements IUserDao {
     public void saveUser(User user) {
 
     }
+
+    public void updateUser(User user) {
+
+    }
+
+    public void deleteUser(Integer id) {
+
+    }
 }
