@@ -33,4 +33,14 @@
     <delete id="deleteUser" parameterType="java.lang.Integer">
         delete from user where id = #{uid}
     </delete>
+
+    <!-- 配置查询一个操作 -->
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.spl.user.domain.User">
+        select * from user where id = #{uid}
+    </select>
+
+    <!-- 配置模糊查询 -->
+    <select id="findByName" parameterType="java.lang.String" resultType="com.spl.user.domain.User">
+        select * from user where username like #{username}
+    </select>
 </mapper>

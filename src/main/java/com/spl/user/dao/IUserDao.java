@@ -2,6 +2,7 @@ package com.spl.user.dao;
 
 import com.spl.user.domain.User;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.type.IntegerTypeHandler;
 
 import java.util.List;
 
@@ -41,4 +42,16 @@ public interface IUserDao {
      * @param id
      */
     void deleteUser(Integer id);
+
+    /**
+     * 查询一个操作
+     * @return
+     */
+    User findById(Integer id);
+
+    /**
+     * 模糊查询
+     * @return
+     */
+    List<User> findByName(String UserName);
 }

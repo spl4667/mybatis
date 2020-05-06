@@ -41,4 +41,12 @@ public class UserDaoImpl implements IUserDao {
     public void deleteUser(Integer id) {
 
     }
+
+    public User findById(Integer id) {
+        return null;
+    }
+
+    public List<User> findByName(String UserName) {
+        return null;
+    }
 }

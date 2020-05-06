@@ -58,7 +58,7 @@ public class MyBatisTest {
     @Test
     public void TestQuery () throws Exception
     {
-        //5.使用代理对象执行方法
+        //使用代理对象执行方法
         List<User> userList = iUserDao.findAll();
         for(User user : userList)
         {
@@ -120,5 +120,32 @@ public class MyBatisTest {
     {
         //执行删除
         this.iUserDao.deleteUser(5);
+    }
+
+    /**
+     * 测试查询一个
+     * @throws Exception
+     */
+    @Test
+    public void TestFindOne() throws Exception
+    {
+        //使用代理对象执行方法
+        User user = iUserDao.findById(3);
+        System.out.println(user);
+    }
+
+    /**
+     * 测试模糊查询
+     * @throws Exception
+     */
+    @Test
+    public void TestFindByLike () throws Exception
+    {
+        //使用代理对象执行方法
+        List<User> userList = iUserDao.findByName("%张%");
+        for(User user : userList)
+        {
+            System.out.println(user);
+        }
     }
 }
