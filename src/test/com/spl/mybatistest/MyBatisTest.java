@@ -148,4 +148,16 @@ public class MyBatisTest {
             System.out.println(user);
         }
     }
+
+    /**
+     * 测试查询用户数
+     * @throws Exception
+     */
+    @Test
+    public void TestFindUserTotal () throws Exception
+    {
+        //使用代理对象执行方法
+        int count = iUserDao.findUserTotal();
+        System.out.println(count);
+    }
 }

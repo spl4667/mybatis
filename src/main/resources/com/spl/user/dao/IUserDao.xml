@@ -43,4 +43,9 @@
     <select id="findByName" parameterType="java.lang.String" resultType="com.spl.user.domain.User">
         select * from user where username like #{username}
     </select>
+
+    <!-- 配置查询用户数 -->
+    <select id="findUserTotal" resultType="java.lang.Integer">
+        select count(1) from user
+    </select>
 </mapper>

@@ -54,4 +54,10 @@ public interface IUserDao {
      * @return
      */
     List<User> findByName(String UserName);
+
+    /**
+     * 查询用户数
+     * @return
+     */
+    int findUserTotal();
 }

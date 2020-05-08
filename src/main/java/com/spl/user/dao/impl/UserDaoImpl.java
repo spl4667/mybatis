@@ -49,4 +49,8 @@ public class UserDaoImpl implements IUserDao {
     public List<User> findByName(String UserName) {
         return null;
     }
+
+    public int findUserTotal() {
+        return 0;
+    }
 }
