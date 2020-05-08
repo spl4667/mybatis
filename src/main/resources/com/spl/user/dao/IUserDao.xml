@@ -11,6 +11,9 @@
 
     <!-- 配置保存 -->
     <insert id="saveUser" parameterType="com.spl.user.domain.User">
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
         INSERT INTO USER
         (username, birthday, sex, address)
         VALUES

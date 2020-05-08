@@ -92,8 +92,10 @@ public class MyBatisTest {
         user.setAddress("浙江");
         user.setBirthday(new Date());
         user.setSex("男");
+        System.out.println("保存之前：" + user);
         //执行保存
         this.iUserDao.saveUser(user);
+        System.out.println("保存之后：" + user);
     }
 
     /**
