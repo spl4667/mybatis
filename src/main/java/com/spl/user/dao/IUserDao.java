@@ -1,5 +1,6 @@
 package com.spl.user.dao;
 
+import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.type.IntegerTypeHandler;
@@ -60,4 +61,10 @@ public interface IUserDao {
      * @return
      */
     int findUserTotal();
+
+    /**
+     * 根据QueryVo查询用户信息
+     * @return
+     */
+    List<User> findByQueryVo(QueryVo vo);
 }

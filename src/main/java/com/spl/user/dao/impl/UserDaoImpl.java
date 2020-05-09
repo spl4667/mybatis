@@ -1,6 +1,7 @@
 package com.spl.user.dao.impl;
 
 import com.spl.user.dao.IUserDao;
+import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -52,5 +53,9 @@ public class UserDaoImpl implements IUserDao {
 
     public int findUserTotal() {
         return 0;
+    }
+
+    public List<User> findByQueryVo(QueryVo vo) {
+        return null;
     }
 }

@@ -2,6 +2,7 @@ package com.spl.mybatistest;
 
 import com.spl.user.dao.IUserDao;
 import com.spl.user.dao.impl.UserDaoImpl;
+import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -161,5 +162,24 @@ public class MyBatisTest {
         //使用代理对象执行方法
         int count = iUserDao.findUserTotal();
         System.out.println(count);
+    }
+
+    /**
+     * 测试QueryVo查询
+     * @throws Exception
+     */
+    @Test
+    public void TestFindByQueryVo () throws Exception
+    {
+        User user = new User();
+        user.setUsername("%张%");
+        QueryVo queryVo = new QueryVo();
+        queryVo.setUser(user);
+        //使用代理对象执行方法
+        List<User> userList = iUserDao.findByQueryVo(queryVo);
+        for(User u : userList)
+        {
+            System.out.println(u);
+        }
     }
 }

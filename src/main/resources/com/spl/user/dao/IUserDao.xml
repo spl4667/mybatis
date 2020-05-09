@@ -51,4 +51,9 @@
     <select id="findUserTotal" resultType="java.lang.Integer">
         select count(1) from user
     </select>
+
+    <!-- 配置查询用户数 -->
+    <select id="findByQueryVo" parameterType="com.spl.user.domain.QueryVo" resultType="com.spl.user.domain.User">
+        select * from user where username like #{user.username}
+    </select>
 </mapper>
