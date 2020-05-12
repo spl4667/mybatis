@@ -16,7 +16,7 @@
     </resultMap>
 
     <!-- 配置查询所有 -->
-    <select id="findAll" resultType="com.spl.user.domain.User">
+    <select id="findAll" resultType="user">
         select * from user
     </select>
 
