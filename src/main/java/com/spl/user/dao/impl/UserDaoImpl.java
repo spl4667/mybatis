@@ -3,6 +3,7 @@ package com.spl.user.dao.impl;
 import com.spl.user.dao.IUserDao;
 import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
+import com.spl.user.domain.UserDiffProperty;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
@@ -56,6 +57,14 @@ public class UserDaoImpl implements IUserDao {
     }
 
     public List<User> findByQueryVo(QueryVo vo) {
+        return null;
+    }
+
+    public List<UserDiffProperty> findDiffPropertyAll() {
+        return null;
+    }
+
+    public List<UserDiffProperty> findDiffPropertyAll2() {
         return null;
     }
 }

@@ -4,6 +4,7 @@ import com.spl.user.dao.IUserDao;
 import com.spl.user.dao.impl.UserDaoImpl;
 import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
+import com.spl.user.domain.UserDiffProperty;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -180,6 +181,28 @@ public class MyBatisTest {
         for(User u : userList)
         {
             System.out.println(u);
+        }
+    }
+
+    /**
+     * 测试查询_实体类属性与数据库字段不对应
+     * @throws Exception
+     */
+    @Test
+    public void TestQueryOfDiffPropery () throws Exception
+    {
+        //使用代理对象执行方法
+        List<UserDiffProperty> userList = iUserDao.findDiffPropertyAll();
+        for(UserDiffProperty user : userList)
+        {
+            System.out.println(user);
+        }
+
+        System.out.println("==========================Result Map==============================");
+        List<UserDiffProperty> userListDiffPropery = iUserDao.findDiffPropertyAll2();
+        for(UserDiffProperty user : userListDiffPropery)
+        {
+            System.out.println(user);
         }
     }
 }

@@ -4,6 +4,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spl.user.dao.IUserDao">
+
+    <resultMap id="userMap" type="com.spl.user.domain.UserDiffProperty">
+        <!-- 主键对应关系 -->
+        <id property="userId" column="id"></id>
+        <!-- 非主键对应关系 -->
+        <result property="userName" column="username"></result>
+        <result property="userAddress" column="address"></result>
+        <result property="userBirthday" column="birthday"></result>
+        <result property="userSex" column="sex"></result>
+    </resultMap>
+
     <!-- 配置查询所有 -->
     <select id="findAll" resultType="com.spl.user.domain.User">
         select * from user
@@ -55,5 +66,15 @@
     <!-- 配置查询用户数 -->
     <select id="findByQueryVo" parameterType="com.spl.user.domain.QueryVo" resultType="com.spl.user.domain.User">
         select * from user where username like #{user.username}
+    </select>
+
+    <!-- 配置查询所有_实体类属性与数据库字段不对应 -->
+    <select id="findDiffPropertyAll" resultType="com.spl.user.domain.UserDiffProperty">
+        select id as userId , username as userName , address as userAddress , sex as userSex , birthday as userBirthday from user
+    </select>
+
+    <!-- 配置查询所有_实体类属性与数据库字段不对应 -->
+    <select id="findDiffPropertyAll2" resultMap="userMap">
+        select * from user
     </select>
 </mapper>

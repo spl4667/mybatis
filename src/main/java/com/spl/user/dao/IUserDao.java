@@ -2,6 +2,7 @@ package com.spl.user.dao;
 
 import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
+import com.spl.user.domain.UserDiffProperty;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.type.IntegerTypeHandler;
 
@@ -67,4 +68,16 @@ public interface IUserDao {
      * @return
      */
     List<User> findByQueryVo(QueryVo vo);
+
+    /**
+     * 查询所有操作_实体类属性与数据库字段不对应
+     * @return
+     */
+    List<UserDiffProperty> findDiffPropertyAll();
+
+    /**
+     * 查询所有操作_实体类属性与数据库字段不对应
+     * @return
+     */
+    List<UserDiffProperty> findDiffPropertyAll2();
 }
