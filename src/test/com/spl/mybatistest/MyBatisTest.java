@@ -207,7 +207,7 @@ public class MyBatisTest {
     }
 
     /**
-     * 测试<if>条件查询
+     * 测试条件查询
      * @throws Exception
      */
     @Test
