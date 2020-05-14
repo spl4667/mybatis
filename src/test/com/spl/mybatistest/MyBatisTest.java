@@ -205,4 +205,21 @@ public class MyBatisTest {
             System.out.println(user);
         }
     }
+
+    /**
+     * 测试<if>条件查询
+     * @throws Exception
+     */
+    @Test
+    public void TestQueryByCondition () throws Exception
+    {
+        UserDiffProperty userDiffProperty = new UserDiffProperty();
+        userDiffProperty.setUserName("张三");
+        //使用代理对象执行方法
+        List<UserDiffProperty> userList = iUserDao.findUserByCondition(userDiffProperty);
+        for(UserDiffProperty user : userList)
+        {
+            System.out.println(user);
+        }
+    }
 }

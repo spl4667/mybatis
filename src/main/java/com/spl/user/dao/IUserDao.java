@@ -80,4 +80,10 @@ public interface IUserDao {
      * @return
      */
     List<UserDiffProperty> findDiffPropertyAll2();
+
+    /**
+     * 查询所有操作_实体类属性与数据库字段不对应
+     * @return
+     */
+    List<UserDiffProperty> findUserByCondition(UserDiffProperty user);
 }

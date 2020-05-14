@@ -67,4 +67,8 @@ public class UserDaoImpl implements IUserDao {
     public List<UserDiffProperty> findDiffPropertyAll2() {
         return null;
     }
+
+    public List<UserDiffProperty> findUserByCondition(UserDiffProperty user) {
+        return null;
+    }
 }
