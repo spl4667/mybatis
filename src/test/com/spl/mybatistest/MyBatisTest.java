@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -217,6 +218,27 @@ public class MyBatisTest {
         userDiffProperty.setUserName("张三");
         //使用代理对象执行方法
         List<UserDiffProperty> userList = iUserDao.findUserByCondition(userDiffProperty);
+        for(UserDiffProperty user : userList)
+        {
+            System.out.println(user);
+        }
+    }
+
+    /**
+     * 测试条件查询
+     * @throws Exception
+     */
+    @Test
+    public void TestQueryByIdsIn () throws Exception
+    {
+        QueryVo queryVo = new QueryVo();
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(2);
+        ids.add(4);
+        queryVo.setIds(ids);
+        //使用代理对象执行方法
+        List<UserDiffProperty> userList = iUserDao.findUserByInIds(queryVo);
         for(UserDiffProperty user : userList)
         {
             System.out.println(user);

@@ -15,6 +15,10 @@
         <result property="userSex" column="sex"></result>
     </resultMap>
 
+    <sql id="defaultUser">
+        select * from user
+    </sql>
+
     <!-- 配置查询所有 -->
     <select id="findAll" resultType="user">
         select * from user
@@ -90,5 +94,18 @@
                     AND username = #{userName}
                 </if>
             </where>
+    </select>
+
+    <!-- 配置查询所有_实体类属性与数据库字段不对应 -->
+    <select id="findUserByInIds" resultMap="userMap" parameterType="QueryVo">
+        <!-- select * from user -->
+        <include refid="defaultUser" />
+        <where>
+            <if test="ids != null and ids.size() > 0">
+                <foreach collection="ids" open=" and id in(" close=")" item="uid" separator=",">
+                    #{uid}
+                </foreach>
+            </if>
+        </where>
     </select>
 </mapper>

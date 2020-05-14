@@ -86,4 +86,11 @@ public interface IUserDao {
      * @return
      */
     List<UserDiffProperty> findUserByCondition(UserDiffProperty user);
+
+    /**
+     * 查询多个id
+     * @param queryVo
+     * @return
+     */
+    List<UserDiffProperty> findUserByInIds(QueryVo queryVo);
 }

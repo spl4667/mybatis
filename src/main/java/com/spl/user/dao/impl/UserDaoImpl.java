@@ -71,4 +71,8 @@ public class UserDaoImpl implements IUserDao {
     public List<UserDiffProperty> findUserByCondition(UserDiffProperty user) {
         return null;
     }
+
+    public List<UserDiffProperty> findUserByInIds(QueryVo queryVo) {
+        return null;
+    }
 }
