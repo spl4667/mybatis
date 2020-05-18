@@ -2,6 +2,7 @@ package com.spl.mybatistest;
 
 import com.spl.account.dao.IAccountDao;
 import com.spl.account.domain.Account;
+import com.spl.account.domain.AccountUser;
 import com.spl.user.dao.IUserDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -58,6 +59,18 @@ public class AccountTest {
         List<Account> accountList = iAccount.findAll();
         for (Account accout : accountList) {
             System.out.println(accout);
+        }
+    }
+
+    /**
+     * 测试查询所有账户及用户信息
+     */
+    @Test
+    public void TestFindAllAccountUser()
+    {
+        List<AccountUser> aus = iAccount.findAccountUser();
+        for (AccountUser au : aus) {
+            System.out.println(au);
         }
     }
 }

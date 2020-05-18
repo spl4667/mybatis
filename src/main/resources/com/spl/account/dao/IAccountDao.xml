@@ -7,7 +7,13 @@
     <sql id="queryAll">
         select * from account
     </sql>
+    <!-- 配置查询所有 -->
     <select id="findAll" resultType="account">
         <include refid="queryAll" />
+    </select>
+
+    <!-- 配置查询所有及用户信息 -->
+    <select id="findAccountUser" resultType="accountuser">
+        select a.*,u.username,u.address from account a , user u where u.id = a.uid
     </select>
 </mapper>
