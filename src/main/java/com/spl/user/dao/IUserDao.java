@@ -93,4 +93,10 @@ public interface IUserDao {
      * @return
      */
     List<UserDiffProperty> findUserByInIds(QueryVo queryVo);
+
+    /**
+     * 一对多查询
+     * @return
+     */
+    List<UserDiffProperty> findUserAccount();
 }

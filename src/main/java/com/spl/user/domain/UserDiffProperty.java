@@ -1,5 +1,7 @@
 package com.spl.user.domain;
 
+import com.spl.account.domain.Account;
+
 import java.util.Date;
 
 public class UserDiffProperty {
@@ -8,6 +10,7 @@ public class UserDiffProperty {
     private Date userBirthday;
     private String userSex;
     private String userAddress;
+    private Account account;
 
     public Integer getUserId() {
         return userId;
@@ -47,6 +50,14 @@ public class UserDiffProperty {
 
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     @Override

@@ -17,4 +17,10 @@ public interface IAccountDao {
      * @return
      */
     List<AccountUser> findAccountUser();
+
+    /**
+     * 查询所有账户信息及用户信息
+     * @return
+     */
+    List<Account> findAccountUser2();
 }

@@ -73,4 +73,18 @@ public class AccountTest {
             System.out.println(au);
         }
     }
+
+    /**
+     * 测试查询所有账户及用户信息
+     */
+    @Test
+    public void TestFindAllAccountUser2()
+    {
+        List<Account> aus = iAccount.findAccountUser2();
+        for (Account au : aus) {
+            System.out.println("============================================");
+            System.out.println(au);
+            System.out.println(au.getUser());
+        }
+    }
 }

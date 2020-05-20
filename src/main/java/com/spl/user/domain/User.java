@@ -1,5 +1,7 @@
 package com.spl.user.domain;
 
+import com.spl.account.domain.Account;
+
 import java.util.Date;
 
 /**

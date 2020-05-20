@@ -1,9 +1,22 @@
 package com.spl.account.domain;
 
+import com.spl.user.domain.User;
+
 public class Account {
     private int id;
     private int uid;
     private double money;
+
+    //从表实体类应该包含一个主表实体类的对象引用
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;

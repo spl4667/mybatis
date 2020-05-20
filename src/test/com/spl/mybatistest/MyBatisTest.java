@@ -244,4 +244,20 @@ public class MyBatisTest {
             System.out.println(user);
         }
     }
+
+    /**
+     * 测试一对多查询
+     * @throws Exception
+     */
+    @Test
+    public void TestfindUserAccount () throws Exception
+    {
+        List<UserDiffProperty> userDiffPropertyList = iUserDao.findUserAccount();
+        for(UserDiffProperty user : userDiffPropertyList)
+        {
+            System.out.println("========================================");
+            System.out.println(user);
+            System.out.println(user.getAccount());
+        }
+    }
 }

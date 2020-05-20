@@ -13,6 +13,12 @@
         <result property="userAddress" column="address"></result>
         <result property="userBirthday" column="birthday"></result>
         <result property="userSex" column="sex"></result>
+
+        <collection property="account" ofType="account">
+            <id property="id" column="aid"></id>
+            <result property="uid" column="uid"></result>
+            <result property="money" column="money"></result>
+        </collection>
     </resultMap>
 
     <sql id="defaultUser">
@@ -107,5 +113,17 @@
                 </foreach>
             </if>
         </where>
+    </select>
+
+    <!-- 配置一对多查询 -->
+    <select id="findUserAccount" resultMap="userMap">
+        SELECT
+        u.*,
+        a.id aid,
+        a.uid,
+        a.money
+    FROM
+        USER u
+        LEFT OUTER JOIN account a ON u.id = a.uid;
     </select>
 </mapper>
