@@ -79,4 +79,8 @@ public class UserDaoImpl implements IUserDao {
     public List<UserDiffProperty> findUserAccount() {
         return null;
     }
+
+    public List<User> findUserAccountLazyLoading() {
+        return null;
+    }
 }

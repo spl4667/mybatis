@@ -29,4 +29,6 @@ public interface IAccountDao {
      * @return
      */
     List<Account> findAccountUserLadyLoading();
+
+    List<Account> findAccountBuUid(Integer uid);
 }

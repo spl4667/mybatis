@@ -52,4 +52,9 @@
     <select id="findAccountUserLadyLoading" resultMap="accountUserLadyLoadingMap">
         select a.* from account a
     </select>
+
+    <!-- 配置通过用户id查询账户信息 -->
+    <select id="findAccountBuUid" resultType="account" parameterType="java.lang.Integer">
+        select a.* from account a where a.uid = #{uid}
+    </select>
 </mapper>

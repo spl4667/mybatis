@@ -21,6 +21,18 @@
         </collection>
     </resultMap>
 
+    <resultMap id="userAccountMap" type="user">
+        <!-- 主键对应关系 -->
+        <id property="id" column="id"></id>
+        <!-- 非主键对应关系 -->
+        <result property="username" column="username"></result>
+        <result property="address" column="address"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+
+        <collection property="account" ofType="account" select="com.spl.account.dao.IAccountDao.findAccountBuUid" column="id"></collection>
+    </resultMap>
+
     <sql id="defaultUser">
         select * from user
     </sql>
@@ -125,5 +137,10 @@
     FROM
         USER u
         LEFT OUTER JOIN account a ON u.id = a.uid;
+    </select>
+
+    <!-- 配置查询所有_实体类属性与数据库字段不对应 -->
+    <select id="findUserAccountLazyLoading" resultMap="userAccountMap">
+        <include refid="defaultUser" />
     </select>
 </mapper>

@@ -99,4 +99,10 @@ public interface IUserDao {
      * @return
      */
     List<UserDiffProperty> findUserAccount();
+
+    /**
+     * 一对多查询-延迟加载
+     * @return
+     */
+    List<User> findUserAccountLazyLoading();
 }

@@ -260,4 +260,20 @@ public class MyBatisTest {
             System.out.println(user.getAccount());
         }
     }
+
+    /**
+     * 测试一对多查询
+     * @throws Exception
+     */
+    @Test
+    public void TestFindUserAccountLazyLoading () throws Exception
+    {
+        List<User> userDiffPropertyList = iUserDao.findUserAccountLazyLoading();
+//        for(User user : userDiffPropertyList)
+//        {
+//            System.out.println("========================================");
+//            System.out.println(user);
+//            System.out.println(user.getAccount());
+//        }
+    }
 }

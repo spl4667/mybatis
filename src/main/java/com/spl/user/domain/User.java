@@ -13,6 +13,7 @@ public class User {
     private Date birthday;
     private String sex;
     private String address;
+    private Account account;
 
     public Integer getId() {
         return id;
@@ -52,6 +53,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     @Override
