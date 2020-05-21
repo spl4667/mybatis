@@ -23,4 +23,10 @@ public interface IAccountDao {
      * @return
      */
     List<Account> findAccountUser2();
+
+    /**
+     * 延迟加载
+     * @return
+     */
+    List<Account> findAccountUserLadyLoading();
 }

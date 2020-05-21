@@ -87,4 +87,18 @@ public class AccountTest {
             System.out.println(au.getUser());
         }
     }
+
+    /**
+     * 测试查询所有账户及用户信息
+     */
+    @Test
+    public void TestFindAccountUserLadyLoading()
+    {
+        List<Account> aus = iAccount.findAccountUserLadyLoading();
+//        for (Account au : aus) {
+//            System.out.println("============================================");
+//            System.out.println(au);
+//            System.out.println(au.getUser());
+//        }
+    }
 }
