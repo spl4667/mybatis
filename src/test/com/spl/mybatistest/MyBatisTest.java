@@ -135,8 +135,23 @@ public class MyBatisTest {
     public void TestFindOne() throws Exception
     {
         //使用代理对象执行方法
-        User user = iUserDao.findById(3);
-        System.out.println(user);
+//        User user = iUserDao.findById(3);
+//        System.out.println(user);
+
+        SqlSession sqlSession1 = sqlSessionFactory.openSession();
+        IUserDao iUserDao1 = sqlSession1.getMapper(IUserDao.class);
+        User user1 = iUserDao1.findById(3);
+        System.out.println(user1);
+        sqlSession1.close();
+        System.out.println("====================================");
+        SqlSession sqlSession2 = sqlSessionFactory.openSession();
+        IUserDao iUserDao2 = sqlSession2.getMapper(IUserDao.class);
+        User user2 = iUserDao2.findById(3);
+        System.out.println(user2);
+        sqlSession2.close();
+
+        System.out.println("====================================");
+        System.out.println(user1 == user2);
     }
 
     /**

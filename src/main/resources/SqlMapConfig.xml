@@ -18,6 +18,8 @@
         <!-- 配置mybatis支持全局延迟加载 -->
         <setting name="lazyLoadingEnabled" value="true"/>
         <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 配置mybatis支持缓存 -->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <!-- typeAliases配置别名，它只能配置domain中类的别名 -->

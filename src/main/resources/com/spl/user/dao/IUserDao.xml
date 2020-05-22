@@ -4,6 +4,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spl.user.dao.IUserDao">
+    <!-- 开启User支持二级缓存 -->
+   <cache/>
 
     <resultMap id="userMap" type="com.spl.user.domain.UserDiffProperty">
         <!-- 主键对应关系 -->
@@ -70,8 +72,8 @@
         delete from user where id = #{uid}
     </delete>
 
-    <!-- 配置查询一个操作 -->
-    <select id="findById" parameterType="java.lang.Integer" resultType="com.spl.user.domain.User">
+    <!-- 配置查询一个操作,支持二级缓存 -->
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.spl.user.domain.User" useCache="true">
         select * from user where id = #{uid}
     </select>
 

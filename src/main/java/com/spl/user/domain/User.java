@@ -2,12 +2,13 @@ package com.spl.user.domain;
 
 import com.spl.account.domain.Account;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author pengl
  */
-public class User {
+public class User implements Serializable {
     private Integer id;
     private String username;
     private Date birthday;
