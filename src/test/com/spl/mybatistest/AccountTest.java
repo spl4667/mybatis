@@ -101,4 +101,18 @@ public class AccountTest {
 //            System.out.println(au.getUser());
 //        }
     }
+
+    /**
+     * 注解：一对一查询
+     */
+    @Test
+    public void TestFindAllAccountUserAnno()
+    {
+        List<Account> aus = iAccount.findAccountAndUser();
+        for (Account au : aus) {
+            System.out.println("============================================");
+            System.out.println(au);
+            System.out.println(au.getUser());
+        }
+    }
 }

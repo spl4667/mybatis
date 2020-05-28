@@ -3,7 +3,8 @@ package com.spl.user.dao;
 import com.spl.user.domain.QueryVo;
 import com.spl.user.domain.User;
 import com.spl.user.domain.UserDiffProperty;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.FetchType;
 import org.apache.ibatis.type.IntegerTypeHandler;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  *
  * 用户持久层接口
  */
+@CacheNamespace(blocking=true)//开启二级缓存
 public interface IUserDao {
     /**
      * 查询所有操作
@@ -105,4 +107,33 @@ public interface IUserDao {
      * @return
      */
     List<User> findUserAccountLazyLoading();
+
+    /**
+     * 注解：查询一个操作
+     * @return
+     */
+    @Select(value="select * from user where id = #{id}")
+    User findById2(Integer userId);
+
+    /**
+     * 注解：多对一开发
+     * @return
+     */
+    @Select(value="select * from user")
+    @Results(id = "userMap2", value={
+            @Result(id = true , column = "id" , property = "userId"),
+            @Result(column = "username" , property = "userName"),
+            @Result(column = "birthday" , property = "userBirthday"),
+            @Result(column = "sex" , property = "userSex"),
+            @Result(column = "address" , property = "userAddress"),
+            @Result(property = "account" , column = "id" , many = @Many(select = "com.spl.account.dao.IAccountDao.findAccountBuUid" , fetchType = FetchType.LAZY))
+    })
+    List<UserDiffProperty> findUserAndAccount();
+
+    /**
+     * 查询一个操作
+     * @return
+     */
+    @Select(value="select * from user where id=#{id}")
+    User findById3(Integer id);
 }

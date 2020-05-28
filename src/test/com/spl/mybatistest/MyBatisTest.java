@@ -291,4 +291,43 @@ public class MyBatisTest {
 //            System.out.println(user.getAccount());
 //        }
     }
+
+    /**
+     * 注解：测试一对多查询
+     * @throws Exception
+     */
+    @Test
+    public void TestFindUserAndAccount() throws Exception
+    {
+        List<UserDiffProperty> userDiffPropertyList = iUserDao.findUserAndAccount();
+        for(UserDiffProperty user : userDiffPropertyList)
+        {
+            System.out.println("========================================");
+            System.out.println(user);
+            System.out.println(user.getAccount());
+        }
+    }
+
+    /**
+     * 注解：二级缓存
+     * @throws Exception
+     */
+    @Test
+    public void TestFindOne2() throws Exception
+    {
+        SqlSession sqlSession1 = sqlSessionFactory.openSession();
+        IUserDao iUserDao1 = sqlSession1.getMapper(IUserDao.class);
+        User user1 = iUserDao1.findById3(3);
+        System.out.println(user1);
+        sqlSession1.close();
+        System.out.println("====================================");
+        SqlSession sqlSession2 = sqlSessionFactory.openSession();
+        IUserDao iUserDao2 = sqlSession2.getMapper(IUserDao.class);
+        User user2 = iUserDao2.findById3(3);
+        System.out.println(user2);
+        sqlSession2.close();
+
+        System.out.println("====================================");
+        System.out.println(user1 == user2);
+    }
 }

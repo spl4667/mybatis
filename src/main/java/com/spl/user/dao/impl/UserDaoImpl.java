@@ -83,4 +83,16 @@ public class UserDaoImpl implements IUserDao {
     public List<User> findUserAccountLazyLoading() {
         return null;
     }
+
+    public User findById2(Integer userId) {
+        return null;
+    }
+
+    public List<UserDiffProperty> findUserAndAccount() {
+        return null;
+    }
+
+    public User findById3(Integer id) {
+        return null;
+    }
 }
